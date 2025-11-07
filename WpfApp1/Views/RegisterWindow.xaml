@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp1.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Registrera Konto" Height="320" Width="360">
+
+    <Grid Margin="20">
+        <StackPanel>
+
+            <TextBlock Text="Skapa Konto" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Användarnamn"/>
+            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="240"/>
+
+            <TextBlock Text="Lösenord" Margin="0,8,0,0"/>
+            <PasswordBox x:Name="PwdBox" Width="240" PasswordChanged="PwdBox_PasswordChanged"/>
+
+            <TextBlock Text="Land" Margin="0,8,0,0"/>
+            <ComboBox ItemsSource="{Binding Countries}" SelectedItem="{Binding SelectedCountry}" Width="240"/>
+
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Margin="0,8,0,8"/>
+
+            <Button Content="Registrera" Width="120" Command="{Binding RegisterCommand}" HorizontalAlignment="Center"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

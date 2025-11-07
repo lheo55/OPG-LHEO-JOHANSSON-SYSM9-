@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApp1.UserDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="User Details" Height="350" Width="300">
+    <Grid Margin="15">
+        <StackPanel>
+            <TextBlock Text="Användarnamn:"/>
+            <TextBox Text="{Binding NewUsername}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Nytt lösenord:"/>
+            <PasswordBox x:Name="PwdBox" PasswordChanged="PwdBox_PasswordChanged" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Bekräfta lösenord:"/>
+            <PasswordBox x:Name="ConfirmPwdBox" PasswordChanged="ConfirmPwdBox_PasswordChanged" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Land:"/>
+            <ComboBox ItemsSource="{Binding Countries}" SelectedItem="{Binding SelectedCountry}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Save" Width="80"
+                        Command="{Binding SaveCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                        Margin="0,0,10,0"/>
+                <Button Content="Cancel" Width="80"
+                        Command="{Binding CancelCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
